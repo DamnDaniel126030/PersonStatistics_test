@@ -52,6 +52,38 @@ describe('getNumberOfStudents', () => {
     expect(personStatistics.getNumberOfStudents()).toEqual(0);
   });
 
-  it('should return ')
+  it('should return 1 if the only person in the array has isStudent as true', () => {
+    personStatistics.people = [{
+      id: 1,
+      name: "Suri",
+      age: 21,
+      isStudent: true,
+      score: 70
+    }];
+    expect(personStatistics.getNumberOfStudents()).toEqual(1);
+  });
+
+  it('should return 0 if every person in the array has isStudent as false', () => {
+    personStatistics.people = [{
+      id: 1,
+      name: "Suri",
+      age: 21,
+      isStudent: false,
+      score: 70
+    }, {
+      id: 2,
+      name: "Viktor",
+      age: 23,
+      isStudent: false,
+      score: 50
+    }, {
+      id: 3,
+      name: "Dóri",
+      age: 20,
+      isStudent: false,
+      score: 75
+    }];
+    expect(personStatistics.getNumberOfStudents()).toEqual(0);
+  });
 });
 
