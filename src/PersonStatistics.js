@@ -20,6 +20,10 @@ export class PersonStatistics {
   };
 
   getAvarageAge(){
+    if (this.#people.length == 0){
+      return 0;
+    };
+
     let ageSum = 0;
     const numOfpeople = this.#people.length
 
@@ -32,6 +36,10 @@ export class PersonStatistics {
 
 
   getNumberOfStudents(){
+    if (this.#people.length == 0){
+      return 0;
+    };
+
     let numOfStudents = 0;
 
     this.#people.forEach(person => {
@@ -44,6 +52,10 @@ export class PersonStatistics {
   };
 
   getPersonWithHighestScore(){
+    if (this.#people.length == 0){
+      return 0;
+    };
+
     let personWithMostScore = this.#people[0];
 
     this.#people.forEach(person => {
@@ -56,6 +68,10 @@ export class PersonStatistics {
   };
 
   getAvarageScoreOfStudents(){
+    if (this.#people.length == 0){
+      return 0;
+    };
+
     let numOfStudents = 0;
     let scoreSum = 0;
 
@@ -70,6 +86,10 @@ export class PersonStatistics {
   };
 
   getOldestStudent(){
+    if (this.#people.length == 0){
+      return 0;
+    };
+
     let oldestStudent = this.#people[0];
 
     this.#people.forEach(person => {
@@ -84,6 +104,10 @@ export class PersonStatistics {
   };
 
   isAnyoneFailing(){
+    if (this.#people.length == 0){
+      return 0;
+    };
+
     let failing = false;
 
     let i = 0;
@@ -98,4 +122,10 @@ export class PersonStatistics {
 
     return failing;
   };
+
+  // checkPeopleArrayLength(){
+  //   if (this.#people.length == 0){
+  //     return 0;
+  //   };
+  // }
 }
