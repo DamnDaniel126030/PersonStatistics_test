@@ -75,12 +75,17 @@ export class PersonStatistics {
     let numOfStudents = 0;
     let scoreSum = 0;
 
+    
     this.#people.forEach(person => {
       if (person.isStudent){
         numOfStudents++;
         scoreSum += person.score;
       };
     });
+
+    if (numOfStudents == 0){
+      return 0;
+    };
 
     return scoreSum / numOfStudents;
   };
@@ -100,7 +105,12 @@ export class PersonStatistics {
       };
     });
 
-    return oldestStudent;
+    if (!oldestStudent.isStudent){
+      return 0;
+    }
+    else{
+      return oldestStudent;
+    }
   };
 
   isAnyoneFailing(){
@@ -122,10 +132,4 @@ export class PersonStatistics {
 
     return failing;
   };
-
-  // checkPeopleArrayLength(){
-  //   if (this.#people.length == 0){
-  //     return 0;
-  //   };
-  // }
 }
