@@ -87,3 +87,44 @@ describe('getNumberOfStudents', () => {
   });
 });
 
+
+describe('getPersonWithHighestScore', () => {
+  it('should return 0 if the array is empty', () => {
+    expect(personStatistics.getPersonWithHighestScore()).toEqual(0);
+  });
+
+  it('if there is only 1 person, should return that person\'s score', () => {
+    personStatistics.people = [{
+      id: 1,
+      name: "Suri",
+      age: 21,
+      isStudent: true,
+      score: 70
+    }];
+    expect(personStatistics.getPersonWithHighestScore().score).toEqual(70);
+  });
+
+  it('should return the highest score of all the people', () => {
+    personStatistics.people = [{
+      id: 1,
+      name: "Suri",
+      age: 21,
+      isStudent: false,
+      score: 70
+    }, {
+      id: 2,
+      name: "Viktor",
+      age: 23,
+      isStudent: false,
+      score: 50
+    }, {
+      id: 3,
+      name: "Dóri",
+      age: 20,
+      isStudent: false,
+      score: 75
+    }];
+    expect(personStatistics.getPersonWithHighestScore().score).toEqual(75);
+  });
+});
+
